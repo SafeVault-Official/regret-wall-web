@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#20190f" />
+    <title>Regret Wall — $REGRET</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Permanent+Marker&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#wall" aria-label="Regret Wall home"><span class="brand-mark">R</span><span>regret wall</span></a>
+      <div class="token-pill"><span class="pulse"></span>$REGRET <span class="divider"></span><span class="muted">live on solana</span></div>
+      <nav class="nav-links" aria-label="Social links">
+        <button class="contract" id="copyContract" aria-label="Copy contract address"><span>CA</span><code>7x...rE9</code><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7V5.8A1.8 1.8 0 0 1 9.8 4h8.4A1.8 1.8 0 0 1 20 5.8v8.4a1.8 1.8 0 0 1-1.8 1.8H17"/><rect x="4" y="8" width="12" height="12" rx="1.8"/></svg></button>
+        <a href="https://x.com" target="_blank" rel="noreferrer">X / Twitter</a>
+        <a href="https://t.me" target="_blank" rel="noreferrer">Telegram</a>
+        <a class="pump-link" href="https://pump.fun" target="_blank" rel="noreferrer">pump.fun <span>↗</span></a>
+      </nav>
+    </header>
+
+    <main id="wall" class="wall" aria-label="Anonymous regrets wall">
+      <div class="wall-wash"></div>
+      <section class="hero" aria-labelledby="pageTitle">
+        <p class="eyebrow">ANONYMOUS CONFESSIONS · NO JUDGMENT</p>
+        <h1 id="pageTitle">leave it on the wall.</h1>
+        <p class="hero-copy">Some things are better said out loud.<br />Even if nobody knows it was you.</p>
+      </section>
+      <section id="notesGrid" class="notes-grid" aria-label="Posted regrets"></section>
+      <aside class="wall-stat"><strong id="regretCount">2,481</strong><span>regrets left behind</span></aside>
+    </main>
+
+    <button id="postButton" class="post-button"><span class="plus">+</span> Post your regret</button>
+
+    <dialog id="composer" class="modal composer-modal" aria-labelledby="composerTitle">
+      <form id="regretForm" method="dialog">
+        <button class="close" type="button" data-close="composer" aria-label="Close">×</button>
+        <p class="eyebrow">IT STAYS BETWEEN US</p>
+        <h2 id="composerTitle">What do you regret?</h2>
+        <label class="sr-only" for="regretText">Your anonymous regret</label>
+        <textarea id="regretText" maxlength="280" placeholder="Say the thing you can't say..." required></textarea>
+        <div class="form-row"><span id="counter">0 / 280</span><span>Anonymous forever</span></div>
+        <fieldset><legend>Pick a note</legend><div class="swatches" id="swatches"><button type="button" class="swatch selected yellow" data-color="yellow" aria-label="Yellow note"></button><button type="button" class="swatch blue" data-color="blue" aria-label="Blue note"></button><button type="button" class="swatch pink" data-color="pink" aria-label="Pink note"></button><button type="button" class="swatch green" data-color="green" aria-label="Green note"></button><button type="button" class="swatch purple" data-color="purple" aria-label="Purple note"></button></div></fieldset>
+        <fieldset><legend>How does it feel?</legend><div class="faces" id="faces"><button type="button" class="face-choice selected" data-face=":(">:(</button><button type="button" class="face-choice" data-face=":/">:/</button><button type="button" class="face-choice" data-face="♡">♡</button><button type="button" class="face-choice" data-face=":O">:O</button></div></fieldset>
+        <button class="submit" type="submit">Pin it to the wall <span>→</span></button>
+      </form>
+    </dialog>
+
+    <dialog id="reader" class="modal reader-modal" aria-labelledby="readerText">
+      <button class="close" type="button" data-close="reader" aria-label="Close">×</button>
+      <article id="expandedNote" class="expanded-note yellow"><span class="note-face">:(</span><p id="readerText"></p><div class="note-bottom"><button class="like expanded-like" type="button">♡ <span>0</span></button><span>anonymous</span></div></article>
+      <p class="read-hint">click anywhere outside to return to the wall</p>
+    </dialog>
+    <div id="toast" class="toast" role="status">contract address copied</div>
+    <script src="app.js"></script>
+  </body>
+</html>
